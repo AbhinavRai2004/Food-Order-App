@@ -52,12 +52,12 @@ const Body = () => {
   return listOfRestaurants.length === 0 ? (
     <Shimmer />
   ) : (
-    <div className=" my-1 min-h-screen bg-gradient-to-tr from-slate-200 ...">
+    <div className="dark:bg-black my-1 dark:m-0 min-h-screen">
       <div className="flex shadow-md">
-        <div className="m-4">
+        <div className="m-4 dark:text-white">
           <FontAwesomeIcon className="absolute p-3" icon={faMagnifyingGlass} />
           <input
-            className="bg-transparent hover:bg-blue-100 font-semibold py-2 px-8 border border-blue-700 hover:border-transparent rounded-full"
+            className="bg-transparent font-semibold py-2 px-8 border border-blue-950 dark:border-white rounded-full"
             type="text"
             value={searchText}
             onChange={(e) => {

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import Shimmer from "./../../../Food_App/src/components/Shimmer";
+import Shimmer from "./Shimmer";
 import { useParams } from "react-router-dom";
-import { MENU_API } from "./../../../Food-order-app/src/utils/constants";
+import { MENU_API } from "../utils/constants";
 import RestaurantCategorie from "./RestaurantCategorie";
 
 const RestaurantMenuCard = () => {
