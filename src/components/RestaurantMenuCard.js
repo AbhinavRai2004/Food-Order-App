@@ -7,6 +7,7 @@ import RestaurantCategorie from "./RestaurantCategorie";
 const RestaurantMenuCard = () => {
   const [resInfo, setResInfo] = useState(null);
   const { resId } = useParams();
+  const [displayIdx, setDisplayIdx] = useState(0);
 
   useEffect(() => {
     fetchMenu();
@@ -27,7 +28,7 @@ const RestaurantMenuCard = () => {
 
   const { name, cuisines, costForTwoMessage } =
     resInfo?.data?.cards[2]?.card?.card?.info;
-  
+
   const categories =
     resInfo?.data?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter(
       (c) =>
@@ -41,8 +42,13 @@ const RestaurantMenuCard = () => {
       <p className="my-4 text-gray-600 font-medium">
         {cuisines.join(", ")} - {costForTwoMessage}
       </p>
-      {categories.map((categorie) => (
-        <RestaurantCategorie key={categorie.card.card.title} data={categorie.card.card} />
+      {categories.map((categorie, index) => (
+        <RestaurantCategorie
+          key={categorie.card.card.title}
+          data={categorie.card.card}
+          display= {index === displayIdx ? true : false}
+          setDisplayIdx={() => setDisplayIdx(index)}
+        />
       ))}
     </div>
   );
